@@ -25,10 +25,10 @@ function Snippet(file)
 	exec "-1read " g:snippet_base . "/" . a:file
 
 	" search for start pattern
-	exe "normal /" . g:snippet_start . "\<cr>"
+	exe "normal! /" . g:snippet_start . "\<cr>"
 
 	" delete start pattern
-	exec "normal df" . g:snippet_start[strlen(g:snippet_start) - 1]
+	exec "normal! df" . g:snippet_start[strlen(g:snippet_start) - 1]
 
 	" enter insert mode
 	call feedkeys("i", "t")
