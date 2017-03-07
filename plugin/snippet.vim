@@ -8,13 +8,15 @@ let g:loaded_snippet = 1
 """"
 "" global variables
 """"
+"{{{
 let g:snippet_start = "<cursor>"
 let g:snippet_base = "~/.vim/snippets"
+"}}}
 
 """"
-"" functions
+"" global functions
 """"
-
+"{{{
 " \brief	load the content of the given file to buffer,
 " 			jumpt to the defined start tag (g:snippet_start)
 " 			and enter insert mode
@@ -30,11 +32,9 @@ function Snippet(file)
 	" delete start pattern
 	exec "normal! df" . g:snippet_start[strlen(g:snippet_start) - 1]
 
-	" enter insert mode
-	call feedkeys("i", "t")
-
 	" move cursor if on whitespace
 	if match(getline('.')[col('.')-1], '\s') == 0
 		call feedkeys("\<right>", "t")
 	endif
 endfunction
+"}}}
